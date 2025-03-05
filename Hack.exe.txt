@@ -62,17 +62,12 @@ class MusicPlay:
         self.__podcast_list = []
         self.__album_list=[]
         self.__playlist = []
-    @property
-    def podcast_list(self):
-        return self.__podcast_list
     def play_podcast(self,podcast):
         pass
-    def add_album(self,album):
+    def add_all_instant(self,poscast,album,playlist):
         self.__album_list.append(album)
-    def add_podcast_list(self,podcast):
-        self.__podcast_list.append(podcast)
-    def add_playlist(self,playlist):
-        self.__playlist.append(playlist)      
+        self.__playlist.append(playlist)
+        self.__podcast_list.append(poscast)        
 def create_instant():
     mp3 = MP3(" แค่เอาคืน")
     aac = AAC("sefeZone")
@@ -83,20 +78,8 @@ def create_instant():
     pla.add_song(mp3)
     pla.add_song(aac)
     album1.add_song(aac)
-    return album1,poscast1,pla
-
-album1,poscast1,pla = create_instant()
-player = MusicPlay()
-player.add_album(album1)
-player.add_podcast_list(poscast1)
-player.add_playlist(pla)
-for i in player.podcast_list:
-    print(i.episode)
-    
-#     MusicPlay.add_album(album1)
-#     MusicPlay.add_podcast_list(poscast1)
-#     MusicPlay.add_playlist(pla)
-
+    return album1,pla,poscast1
+def enllo():
 
 
     
