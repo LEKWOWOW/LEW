@@ -39,8 +39,29 @@ class Podcast():
     @property
     def episode(self):
         return self.__episode
-class Playlist:
+class MediaList:
+    def __init__(self):
+        self.__media_list = []
+    def add_media_list(self,media):
+        self.__media_list.append(media)
+    @property
+    def media_list(self):
+        return self.__media_list
+    
+class Playlist(MediaList):
     def __init__(self,playlist_name):
+        super().__init__()
         self.__playlist_name = playlist_name
-        self.__media = []
-    def add_
+    def add_song(self,media):
+        super().add_media_list(media)
+    def seach_id(self,name):
+        for i in super().media_list:
+            if i.name == name:
+                return i.name
+playlist1 = Playlist("ee")
+playlist1.add_song(FLAC("song1"))
+g = playlist1.seach_id("song1")
+
+
+
+    
