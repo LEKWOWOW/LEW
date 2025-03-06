@@ -41,6 +41,9 @@ class Playlist(MediaList):
     def __init__(self,name):
         super().__init__()
         self.__name = name
+    @property
+    def name(self):
+        return self.__name 
     def add_song(self,media):
         super().add_media(media)
 class Album(MediaList):
@@ -73,8 +76,18 @@ class MusicPlay:
         self.__podcast_list.append(podcast)
     def add_playlist(self,playlist):
         self.__playlist.append(playlist)      
+    def seach__playlist_by_name(self,name):
+        for  e in self.__album_list:
+            for i in self.__playlist:
+                    for j in i.media_list:
+                        if i.name.lower() == name.lower() or j.name.lower() == name.lower() or e.name.lower() == name.lower() or e.artist.lower() == name.lower():
+                            return (f"ชิ่อPlaylist😊:{i.name} ชื่อเพลง {j.name} ประเภทไฟลท์👌: {j.type} ชื่ออัลบัม 😊{e.name} ชื่อ ศิลปิน {e.artist}")
+                        return "ไท่พบเพลลิส"
+    def seach__album_by_name(self):
+        
+     pass
 def create_instant():
-    mp3 = MP3(" แค่เอาคืน")
+    mp3 = MP3("แค่เอาคืน")
     aac = AAC("sefeZone")
     pla = Playlist("เพลงจากsuffic")
     poscast1 = Pocast("ชั่งมันเถอะ","ใครก็ได้")
@@ -90,8 +103,10 @@ player = MusicPlay()
 player.add_album(album1)
 player.add_podcast_list(poscast1)
 player.add_playlist(pla)
-for i in player.podcast_list:
-    print(i.episode)
+print(player.seach__playlist_by_name("lookhmee 💕 Sonya"))
+
+
+
     
 #     MusicPlay.add_album(album1)
 #     MusicPlay.add_podcast_list(poscast1)
