@@ -82,12 +82,17 @@ class MusicPlay:
                     for j in i.media_list:
                         if i.name.lower() == name.lower() or j.name.lower() == name.lower() or e.name.lower() == name.lower() or e.artist.lower() == name.lower():
                             return (f"ชิ่อPlaylist😊:{i.name} ชื่อเพลง {j.name} ประเภทไฟลท์👌: {j.type} ชื่ออัลบัม 😊{e.name} ชื่อ ศิลปิน {e.artist}")
-                        return "ไท่พบเพลลิส"
+                        return "Not Found"
     def seach__album_by_name(self,name):
         for i in self.__album_list:
             for j in i.media_list:
                 if i.name.lower() == name.lower()or j.name.lower() == name.lower() or i.artist.lower() == name.lower():
                     return (f"ชืออัลบัม 💕 {i.name} ชื่อเพลง 💕{j.name} ประเภทไฟล์ 💕 {j.type} ชื่ออัลบัม 😊 {i.name} ชื่อ ศิลปิล 💕 {i.artist}") 
+                return "Not Found"
+    def seach_podcast_by_name(self,name):
+        for i in poscast1.episode:
+            if i.lower() == name.lower():
+                return (i.channel_name)
 def create_instant():
     mp3 = MP3("แค่เอาคืน")
     aac = AAC("sefeZone")
@@ -98,7 +103,7 @@ def create_instant():
     pla.add_song(mp3)
     pla.add_song(aac)
     album1.add_song(aac)
-    return album1,poscast1,pla
+    return album1,poscast1,pla  
 
 album1,poscast1,pla = create_instant()
 player = MusicPlay()
@@ -107,6 +112,7 @@ player.add_podcast_list(poscast1)
 player.add_playlist(pla)
 print(player.seach__playlist_by_name("lookhmee 💕 Sonya"))
 print(player.seach__album_by_name("lookhmee 💕 Sonya"))
+
 
 
     
