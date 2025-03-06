@@ -41,9 +41,6 @@ class Playlist(MediaList):
     def __init__(self,name):
         super().__init__()
         self.__name = name
-    @property
-    def name(self):
-        return self.__name 
     def add_song(self,media):
         super().add_media(media)
 class Album(MediaList):
@@ -65,31 +62,14 @@ class MusicPlay:
         self.__podcast_list = []
         self.__album_list=[]
         self.__playlist = []
-    @property
-    def podcast_list(self):
-        return self.__podcast_list
     def play_podcast(self,podcast):
         pass
-    def add_album(self,album):
+    def add_all_instant(self,poscast,album,playlist):
         self.__album_list.append(album)
-    def add_podcast_list(self,podcast):
-        self.__podcast_list.append(podcast)
-    def add_playlist(self,playlist):
-        self.__playlist.append(playlist)      
-    def seach__playlist_by_name(self,name):
-        for  e in self.__album_list:
-            for i in self.__playlist:
-                    for j in i.media_list:
-                        if i.name.lower() == name.lower() or j.name.lower() == name.lower() or e.name.lower() == name.lower() or e.artist.lower() == name.lower():
-                            return (f"ชิ่อPlaylist😊:{i.name} ชื่อเพลง {j.name} ประเภทไฟลท์👌: {j.type} ชื่ออัลบัม 😊{e.name} ชื่อ ศิลปิน {e.artist}")
-                        return "ไท่พบเพลลิส"
-    def seach__album_by_name(self,name):
-        for i in self.__album_list:
-            for j in i.media_list:
-                if i.name.lower() == name.lower()or j.name.lower() == name.lower() or i.artist.lower() == name.lower():
-                    return (f"ชืออัลบัม 💕 {i.name} ชื่อเพลง 💕{j.name} ประเภทไฟล์ 💕 {j.type} ชื่ออัลบัม 😊 {i.name} ชื่อ ศิลปิล 💕 {i.artist}") 
+        self.__playlist.append(playlist)
+        self.__podcast_list.append(poscast)        
 def create_instant():
-    mp3 = MP3("แค่เอาคืน")
+    mp3 = MP3(" แค่เอาคืน")
     aac = AAC("sefeZone")
     pla = Playlist("เพลงจากsuffic")
     poscast1 = Pocast("ชั่งมันเถอะ","ใครก็ได้")
@@ -98,22 +78,8 @@ def create_instant():
     pla.add_song(mp3)
     pla.add_song(aac)
     album1.add_song(aac)
-    return album1,poscast1,pla
-
-album1,poscast1,pla = create_instant()
-player = MusicPlay()
-player.add_album(album1)
-player.add_podcast_list(poscast1)
-player.add_playlist(pla)
-print(player.seach__playlist_by_name("lookhmee 💕 Sonya"))
-print(player.seach__album_by_name("lookhmee 💕 Sonya"))
-
-
-    
-#     MusicPlay.add_album(album1)
-#     MusicPlay.add_podcast_list(poscast1)
-#     MusicPlay.add_playlist(pla)
-
+    return album1,pla,poscast1
+def enllo():
 
 
     
